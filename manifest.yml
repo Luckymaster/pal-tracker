@@ -5,7 +5,7 @@ applications:
   random-route: true
   env:
     WELCOME_MESSAGE: Hello from Traviss
-    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 8.+ } }'
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     CF_INSTANCE_ADDR: pal-instance
     CF_INSTANCE_INDEX: MY_INDEX
     MEMORY_LIMIT: 516
