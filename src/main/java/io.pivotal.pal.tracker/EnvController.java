@@ -10,13 +10,13 @@ import java.util.Map;
 @RestController
 public class EnvController {
 
-    @Value("${port:1010}")
+
     private final String port;
-    @Value("${memoryLimit:1}")
+
     private final String memoryLimit;
-    @Value("${cf.instance.index:NOT SET}")
+
     private final String cfInstanceIndex;
-    @Value("${cfInstanceAddress:abcd}")
+
     private final String cfInstanceAddress;
 
     public EnvController(

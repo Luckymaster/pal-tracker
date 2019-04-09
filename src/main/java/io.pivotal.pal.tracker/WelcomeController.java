@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WelcomeController {
 
 
-    @Value("${WELCOME_MESSAGE}")
+    //@Value("${WELCOME_MESSAGE}")
     public String message;
 
     @GetMapping("/")
@@ -16,9 +16,9 @@ public class WelcomeController {
         return message;
     }
 
-   /* public WelcomeController(String msg){
+    public WelcomeController(@Value("${WELCOME_MESSAGE}")  String msg){
         this.message=msg;
-    }*/
+    }
 
 
 }
