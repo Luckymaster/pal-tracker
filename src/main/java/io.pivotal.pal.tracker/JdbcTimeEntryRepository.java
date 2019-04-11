@@ -1,10 +1,12 @@
 package io.pivotal.pal.tracker;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Date;
@@ -14,9 +16,12 @@ import java.util.List;
 
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
+@Repository
 public class JdbcTimeEntryRepository implements TimeEntryRepository {
 
 
+
+    @Autowired
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
 
@@ -86,7 +91,7 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository {
     public List<TimeEntry> delete(long timeEntryId) {
         String qry = "DELETE FROM time_entries WHERE ID =?";
         jdbcTemplate.update(qry,new Object[]{timeEntryId});
-        return null;
+        return list();
     }
 
     @Override
