@@ -21,7 +21,7 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository {
 
 
 
-    @Autowired
+
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
 

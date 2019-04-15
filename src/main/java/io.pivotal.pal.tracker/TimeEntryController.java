@@ -42,7 +42,6 @@ public class TimeEntryController {
         actionCounter.increment();
         timeEntrySummary.record(timeEntryRepository.list().size());
 
-        //myresp.put(timeEntryToCreate.getId(), timeEntryToCreate);
         return new ResponseEntity<TimeEntry>(timeEntryRepository.create(timeEntryToCreate), HttpStatus.CREATED);
 
     }
@@ -50,7 +49,7 @@ public class TimeEntryController {
     @GetMapping(value = "/time-entries/{timeEntryId}")
     public ResponseEntity<TimeEntry> read(@PathVariable("timeEntryId") long timeEntryId) {
 
-            TimeEntry obj = timeEntryRepository.find(timeEntryId);
+        TimeEntry obj = timeEntryRepository.find(timeEntryId);
 
         if (null == obj)
             return new ResponseEntity(obj, HttpStatus.NOT_FOUND);
@@ -76,7 +75,7 @@ public class TimeEntryController {
         TimeEntry obj = timeEntryRepository.update(timeEntryId, expected);
         if (obj == null)
             return new ResponseEntity<TimeEntry>(obj, HttpStatus.NOT_FOUND);
-        else{
+        else {
             actionCounter.increment();
             return new ResponseEntity<TimeEntry>(obj, HttpStatus.OK);
         }
@@ -90,7 +89,7 @@ public class TimeEntryController {
         List<TimeEntry> res = timeEntryRepository.delete(timeEntryId);
         actionCounter.increment();
         timeEntrySummary.record(timeEntryRepository.list().size());
-            return new ResponseEntity<>(res, HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(res, HttpStatus.NO_CONTENT);
 
     }
 }

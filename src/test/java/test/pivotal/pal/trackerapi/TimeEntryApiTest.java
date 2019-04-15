@@ -75,9 +75,9 @@ public class TimeEntryApiTest {
         DocumentContext listJson = parse(listResponse.getBody());
 
         Collection timeEntries = listJson.read("$[*]", Collection.class);
-        assertThat(timeEntries.size()).isEqualTo(1);
+        assertThat(timeEntries.size()).isEqualTo(2);
 
-        Long readId = listJson.read("$[0].id", Long.class);
+        Long readId = listJson.read("$[1].id", Long.class);
         assertThat(readId).isEqualTo(id);
     }
 

@@ -12,11 +12,6 @@ buildscript {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:$springBootVersion"
     }
 }
-springBoot {
-    buildInfo()
-}
-
-
 
 plugins {
     id "java"
@@ -27,6 +22,10 @@ apply plugin: 'org.springframework.boot'
 
 repositories {
     mavenCentral()
+}
+
+springBoot {
+    buildInfo()
 }
 
 dependencies {
